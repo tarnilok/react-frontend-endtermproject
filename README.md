@@ -56,6 +56,17 @@ SOLUTION
 - **Step 4: Installled & Used** Material UI, React toastify, formik & yup, redux state container,\
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
 
+- **Step 5: Packages:**  <pre>npm install @material -ui/core
+  npm install @material -ui/icons
+  npm install --save react-toastify
+  npm install formik --save
+  npm install yup --save
+  npm install firebase
+  npm install react-router-dom
+  npm install gh-pages --save-dev</pre>
+
+
+
 - **Step 6: Added** project gif to the project and README.md file.
 
 - **Step 7: Deployed** to heroku
