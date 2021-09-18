@@ -54,7 +54,7 @@ SOLUTION
 - Step 3 : Used `https://firebase.google.com/docs/auth/web/start` and created `Authentication` operations.
 
 - Step 4: Installled & Used: Material UI, React toastify, formik & yup, redux state container,\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
 
 - Step 6: Added project gif to the project and README.md file.
 
