@@ -47,18 +47,18 @@ SOLUTION
 
 ## Steps to Solution
 
-- Step 1 : Created React App using `npx create-react-app react-frontend-milestoneproject`
+- **Step 1 : Created** React App using `npx create-react-app react-frontend-milestoneproject`
 
-- Step 2 : Signuped `https://firebase.google.com/` and created new app in firebase.
+- **Step 2 : Signuped** `https://firebase.google.com/` and created new app in firebase.
 
-- Step 3 : Used `https://firebase.google.com/docs/auth/web/start` and created `Authentication` operations.
+- **Step 3 : Used** `https://firebase.google.com/docs/auth/web/start` and created `Authentication` operations.
 
-- Step 4: Installled & Used: Material UI, React toastify, formik & yup, redux state container,\
+- **Step 4: Installled & Used** Material UI, React toastify, formik & yup, redux state container,\
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
 
-- Step 6: Added project gif to the project and README.md file.
+- **Step 6: Added** project gif to the project and README.md file.
 
-- Step 7: Deployed to heroku
+- **Step 7: Deployed** to heroku
 
 ## ❗❗❗ env development keys
 
