@@ -6,7 +6,7 @@
 |----Readme.md         
 SOLUTION
 ├── 📁public 
-│     └── index.html
+│     └── index.html  
 ├── 📁src 
 │    ├── 📁auth 
 │    │     └── firebase.js
@@ -63,7 +63,7 @@ SOLUTION
   npm install --save react-toastify
   npm install formik --save
   npm install yup --save
-  npm install firebase
+  npm install firebase@8.6.3
   npm install react-router-dom
   npm install gh-pages --save-dev</pre>
 
