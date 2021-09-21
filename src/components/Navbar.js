@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary py-0">
-        <div className="container-fluid py-2" style={{backgroundColor:"#046582"}}>
+        <div className="container-fluid py-2 " style={{backgroundColor:"#046582"}}>
           <img src= {richard} alt="richard watterson" className="bg-light border border-light border-3 rounded-circle " style={{width:"50px"}}/>
           <a className="navbar-brand text-center fs-3 text-white" href="/main" onClick={() => history.push("/main")}>
             {`──── <ChrisDev/> ────`}
