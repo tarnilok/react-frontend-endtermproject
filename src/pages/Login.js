@@ -6,14 +6,40 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import signIn from "../assets/signIn.png";
 import google from "../assets/google.png";
 // import {createUser, signUpProvider} from '../auth/firebase';
 
+import { createUser } from "../auth/firebase";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+const onSubmit = (values) => {
+  console.log("Values:", values);
+};
+
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .required("Required.Enter email address"),
+  password: Yup.string()
+    .required("No password provided.")
+});
+
 export default function Login() {
-  const handleSubmit = (event) => {
+
+  const formik = useFormik({ 
+    initialValues,
+    onSubmit,
+    validationSchema
+  })
+
+  const dataSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
@@ -60,30 +86,38 @@ export default function Login() {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={dataSubmit, formik.handleSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  required
                   fullWidth
                   id="email"
+                  variant="filled"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={formik.handleChange} 
+                  value={formik.values.email}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.email && formik.errors.email ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.email} </Box> : null}
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required
                   fullWidth
                   name="password"
                   label="Password"
                   type="password"
                   id="password"
+                  variant="filled"
                   autoComplete="new-password"
+                  onChange={formik.handleChange} 
+                  value={formik.values.password}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.password && formik.errors.password ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.password} </Box> : null}
               </Grid>
             </Grid>
             <Button

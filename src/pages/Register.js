@@ -7,7 +7,6 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import signUp from "../assets/signUp.png";
 import google from "../assets/google.png";
@@ -39,7 +38,7 @@ const validationSchema = Yup.object({
     .required("Required.Enter email address"),
   password: Yup.string()
     .required("No password provided.")
-    .min(6, "Password is too short - should be 8 chars minimum.")
+    .min(6, "Password is too short - should be 6 chars minimum.")
     .matches(/(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*\d)/, "Password can only contain at least one digit and Latin letters with at least one lowercase and uppercase."),
 });
 
@@ -123,6 +122,7 @@ export default function SignUp() {
                   name="firstName"
                   fullWidth
                   id="firstName"
+                  variant="filled"
                   label="First Name"
                   onChange={formik.handleChange} 
                   value={formik.values.firstName}
@@ -134,6 +134,7 @@ export default function SignUp() {
                 <TextField
                   fullWidth
                   id="lastName"
+                  variant="filled"
                   label="Last Name"
                   name="lastName"
                   autoComplete="lname"
@@ -147,6 +148,7 @@ export default function SignUp() {
                 <TextField
                   fullWidth
                   id="email"
+                  variant="filled"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
@@ -163,6 +165,7 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
+                  variant="filled"
                   autoComplete="new-password"
                   onChange={formik.handleChange} 
                   value={formik.values.password}
