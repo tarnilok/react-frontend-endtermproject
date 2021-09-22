@@ -12,13 +12,7 @@ import signIn from "../assets/signIn.png";
 import google from "../assets/google.png";
 // import {createUser, signUpProvider} from '../auth/firebase';
 
-
-
-
-const theme = createTheme();
-
 export default function Login() {
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -30,21 +24,23 @@ export default function Login() {
   };
 
   return (
-      <ThemeProvider theme={theme} >
+    <Box sx={{backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight:"92.7vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11}}>
       <Container
         component="main"
         maxWidth="xs"
-        sx={{backgroundImage: "url(https://picsum.photos/1600/900)", borderRadius: 3, boxShadow: "10px 10px 4px grey"}}
+        sx={{
+          borderRadius: 3,
+          boxShadow: "10px 10px 4px grey",
+          backgroundColor: "#fff"
+        }}
       >
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            p:2,
-            
+            p: 2,
           }}
         >
           <Avatar
@@ -68,7 +64,6 @@ export default function Login() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-
               <Grid item xs={12}>
                 <TextField
                   required
@@ -125,14 +120,13 @@ export default function Login() {
               />
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item >
+              <Grid item>
                 <Link to="/register">Don't you have an account? Sign up</Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </Box>
   );
 }
-
