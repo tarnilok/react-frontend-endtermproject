@@ -57,9 +57,10 @@ SOLUTION
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
 
 - **Step 5: Packages:**  <pre>
-- npm install @mui/material
+  npm install @mui/material
   npm install @material-ui/core
   npm install @material-ui/icons
+  npm install --save material-ui-popup-state
   npm install --save react-toastify
   npm install formik --save
   npm install yup --save

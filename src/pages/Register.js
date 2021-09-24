@@ -64,7 +64,7 @@ export default function SignUp() {
   }
 
   const formik = useFormik({ 
-    initialValues,
+    initialValues, 
     onSubmit,
     validationSchema
   })
