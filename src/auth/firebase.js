@@ -1,8 +1,9 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { successToastify, errorToastify } from "../styling/toastify";
 
-const firebaseApp = firebase.initializeApp({
+export const firebaseApp = firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_PROJECT_ID,
@@ -12,8 +13,9 @@ const firebaseApp = firebase.initializeApp({
   // measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 
+
 // to create  a new user
-export const createUser = async (email, password, name, lastname) => {
+export const createUser = async (email, password, firstName, lastName) => {
   try {
     await firebase
       .auth()
@@ -25,17 +27,39 @@ export const createUser = async (email, password, name, lastname) => {
       })
       .catch((error) => {
         // var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error.code)
+        // var errorMessage = error.message;
         // ..
       });
 
     const currentUser = firebase.auth().currentUser;
-    await currentUser.updateProfile({ name, lastname });
-    alert(currentUser);
+    console.log(currentUser)
+    await currentUser.updateProfile(`${firstName} ${lastName}`);
+    successToastify(`New user created successfully. Welcome ${currentUser}`);
   } catch (error) {
-    alert(
-      "There exists an account with this email. Please login with your password or continue with Google!"
-    );
+    // errorToastify("There exists an account with this email. Please login with your password or continue with Google!")
   }
 };
+
+// sign up with google
+export const signUpProvider = () => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
+  firebase.auth().signInWithPopup(provider);
+};
+
+export const userObserver = async (setCurrentUser) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      // User is signed out
+      setCurrentUser(null);
+    }
+  });
+};
+
+// sign out
+export const signOut = () => {
+  firebase.auth().signOut();
+};
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useHistory } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -10,10 +10,13 @@ import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import signUp from "../assets/signUp.png";
 import google from "../assets/google.png";
-
-import { createUser } from "../auth/firebase";
+import { createUser, signUpProvider } from "../auth/firebase";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import * as Yup from "yup"
+import { AuthContext } from "../context/AuthContext";
+
+
+
 
 const initialValues = {
   firstName: "",
@@ -52,16 +55,18 @@ export default function SignUp() {
     validationSchema
   })
   
+  const {currentUser} = useContext(AuthContext)
+
 
   const dataSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      name: data.get("firstName"),
-      lastname: data.get("lastName"),
-    });
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    //   name: data.get("firstName"),
+    //   lastname: data.get("lastName"),
+    // });
     createUser(
       data.get("email"),
       data.get("password"),
@@ -69,6 +74,13 @@ export default function SignUp() {
       data.get("lastName")
     );
   };
+
+  const signUpWıthGoogle = () => {
+    signUpProvider();
+    // history.push("/main")
+    console.log(currentUser)
+    if (currentUser)  history.push("/main")
+  }
 
   return (
     <Box
@@ -113,8 +125,7 @@ export default function SignUp() {
               mb: 3,
             }}
           />
-
-          <Box component="form" onSubmit={dataSubmit, formik.handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={() => {dataSubmit(); formik.handleSubmit()}} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -188,6 +199,7 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
+            </Box>
             <Button
               type="submit"
               fullWidth
@@ -199,6 +211,7 @@ export default function SignUp() {
                 "&:hover": { bgcolor: "#808080" },
                 fontWeight: "bold",
               }}
+              onClick={signUpWıthGoogle}
             >
               WITH
               <Avatar
@@ -212,7 +225,7 @@ export default function SignUp() {
                 <Link to="/login">Already have an account? Sign in</Link>
               </Grid>
             </Grid>
-          </Box>
+          
         </Box>
       </Container>
     </Box>

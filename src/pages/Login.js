@@ -11,7 +11,6 @@ import signIn from "../assets/signIn.png";
 import google from "../assets/google.png";
 // import {createUser, signUpProvider} from '../auth/firebase';
 
-import { createUser } from "../auth/firebase";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -39,15 +38,15 @@ export default function Login() {
     validationSchema
   })
 
-  const dataSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  // const dataSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   // eslint-disable-next-line no-console
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
 
   return (
     <Box sx={{backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight:"92.7vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11}}>
@@ -86,7 +85,7 @@ export default function Login() {
           <Box
             component="form"
             noValidate
-            onSubmit={dataSubmit, formik.handleSubmit}
+            onSubmit={formik.handleSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
