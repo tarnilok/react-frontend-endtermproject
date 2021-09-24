@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -7,12 +7,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
-import signIn from "../assets/signIn.png";
+import signInImage from "../assets/signIn.png";
 import google from "../assets/google.png";
-// import {createUser, signUpProvider} from '../auth/firebase';
-
 import { useFormik } from "formik";
+
 import * as Yup from "yup";
+import { useHistory } from "react-router-dom";
+import { signIn, signUpProvider } from "../auth/firebase";
 
 const initialValues = {
   email: "",
@@ -31,6 +32,7 @@ const validationSchema = Yup.object({
 });
 
 export default function Login() {
+  const history = useHistory();
 
   const formik = useFormik({ 
     initialValues,
@@ -38,15 +40,22 @@ export default function Login() {
     validationSchema
   })
 
-  // const dataSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   // eslint-disable-next-line no-console
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
+  const dataSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
+    signIn(data.get("email"), data.get("password"))
+    history.push("/main")
+  };
+
+  const signUpWıthGoogle = () => {
+    signUpProvider();
+    history.push("/main")
+  }
 
   return (
     <Box sx={{backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight:"92.7vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11}}>
@@ -69,7 +78,7 @@ export default function Login() {
           }}
         >
           <Avatar
-            src={signIn}
+            src={signInImage}
             alt="signin"
             sx={{
               width: 150,
@@ -85,7 +94,7 @@ export default function Login() {
           <Box
             component="form"
             noValidate
-            onSubmit={formik.handleSubmit}
+            onSubmit={dataSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
@@ -133,6 +142,7 @@ export default function Login() {
             >
               Sign In
             </Button>
+            </Box>
             <Button
               type="submit"
               fullWidth
@@ -144,6 +154,7 @@ export default function Login() {
                 "&:hover": { bgcolor: "#808080" },
                 fontWeight: "bold",
               }}
+              onClick={signUpWıthGoogle}
             >
               WITH
               <Avatar
@@ -157,7 +168,7 @@ export default function Login() {
                 <Link to="/register">Don't you have an account? Sign up</Link>
               </Grid>
             </Grid>
-          </Box>
+          
         </Box>
       </Container>
     </Box>

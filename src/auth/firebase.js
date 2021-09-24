@@ -15,7 +15,7 @@ export const firebaseApp = firebase.initializeApp({
 
 
 // to create  a new user
-export const createUser = async (email, password, firstName, lastName) => {
+export const createUser = async (firstName, lastName, email, password) => {
   try {
     await firebase
       .auth()
@@ -29,14 +29,15 @@ export const createUser = async (email, password, firstName, lastName) => {
         // var errorCode = error.code;
         // var errorMessage = error.message;
         // ..
+        console.log(firstName)
       });
-
+      console.log("create user")
     const currentUser = firebase.auth().currentUser;
-    console.log(currentUser)
-    await currentUser.updateProfile(`${firstName} ${lastName}`);
-    successToastify(`New user created successfully. Welcome ${currentUser}`);
+    // console.log(currentUser)
+    await currentUser.updateProfile({displayName: `${firstName} ${lastName}`});
+    successToastify(`New user created successfully. Welcome ${currentUser.displayName}`);
   } catch (error) {
-    // errorToastify("There exists an account with this email. Please login with your password or continue with Google!")
+    errorToastify("There exists an account with this email. Please login with your password or continue with Google!")
   }
 };
 
@@ -57,6 +58,25 @@ export const userObserver = async (setCurrentUser) => {
     }
   });
 };
+
+// sign in
+
+export const signIn = (email, password) => {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      // var user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      // var errorCode = error.code;
+      // var errorMessage = error.message;
+      alert("The password is invalid or the user does not have a password!");
+    });
+};
+
 
 // sign out
 export const signOut = () => {

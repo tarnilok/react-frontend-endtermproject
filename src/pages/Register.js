@@ -25,9 +25,7 @@ const initialValues = {
   password: "",
 };
 
-const onSubmit = (values) => {
-  console.log("Values:", values);
-};
+
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -48,6 +46,22 @@ const validationSchema = Yup.object({
 
 export default function SignUp() {
   const history = useHistory();
+ 
+  
+  const {currentUser} = useContext(AuthContext)
+  console.log("currentuser: ", currentUser)
+  if(currentUser) history.push("/main")
+
+  const onSubmit = async (values) => {
+    console.log("Values:", values);
+    await createUser(values.firstName, values.lastName, values.email, values.password)
+    // console.log("submit")
+    // console.log(currentUser)
+  };
+
+  const signUpWıthGoogle = () => {
+    signUpProvider();
+  }
 
   const formik = useFormik({ 
     initialValues,
@@ -55,32 +69,7 @@ export default function SignUp() {
     validationSchema
   })
   
-  const {currentUser} = useContext(AuthContext)
 
-
-  const dataSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    //   name: data.get("firstName"),
-    //   lastname: data.get("lastName"),
-    // });
-    createUser(
-      data.get("email"),
-      data.get("password"),
-      data.get("firstName"),
-      data.get("lastName")
-    );
-  };
-
-  const signUpWıthGoogle = () => {
-    signUpProvider();
-    // history.push("/main")
-    console.log(currentUser)
-    if (currentUser)  history.push("/main")
-  }
 
   return (
     <Box
@@ -125,7 +114,7 @@ export default function SignUp() {
               mb: 3,
             }}
           />
-          <Box component="form" onSubmit={() => {dataSubmit(); formik.handleSubmit()}} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
