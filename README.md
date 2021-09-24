@@ -53,8 +53,8 @@ SOLUTION
 
 - **Step 3 : Used** `https://firebase.google.com/docs/auth/web/start` and created `Authentication` operations.
 
-- **Step 4: Installled & Used** Material UI, Bootstrap, React toastify, formik & yup, redux state container,\
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;random login background image from `https://picsum.photos/1600/900`, .env 
+- **Step 4: Installled & Used** <pre>Material UI, Bootstrap, React toastify, formik & yup, redux state container,\
+  random login background image from `https://picsum.photos/1600/900`, .env </pre>
 
 - **Step 5: Packages:**  <pre>
   npm install @mui/material
