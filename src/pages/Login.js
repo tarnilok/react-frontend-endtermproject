@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,19 +10,18 @@ import { Link } from "react-router-dom";
 import signInImage from "../assets/signIn.png";
 import google from "../assets/google.png";
 import { useFormik } from "formik";
+import { AuthContext } from "../context/AuthContext";
 
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-import { signIn, signUpProvider } from "../auth/firebase";
+import { signIn, SignUpProvider } from "../auth/firebase";
 
 const initialValues = {
   email: "",
   password: "",
 };
 
-const onSubmit = (values) => {
-  console.log("Values:", values);
-};
+
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -34,29 +33,25 @@ const validationSchema = Yup.object({
 export default function Login() {
   const history = useHistory();
 
+  
+
+  const {currentUser} = useContext(AuthContext)
+  if(currentUser) history.push("/main")
+
+  const onSubmit = async (values) => {
+    // console.log("Values:", values);
+    await signIn(values.email,values.password)
+  };
+  
+  const signUpWıthGoogle = () => {
+    SignUpProvider();
+  }
+
   const formik = useFormik({ 
     initialValues,
     onSubmit,
     validationSchema
   })
-
-  const dataSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
-    signIn(data.get("email"), data.get("password"))
-    history.push("/main")
-  };
-
-  const signUpWıthGoogle = () => {
-    signUpProvider();
-    history.push("/main")
-  }
-
   return (
     <Box sx={{backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight:"92.7vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11}}>
       <Container
@@ -94,7 +89,7 @@ export default function Login() {
           <Box
             component="form"
             noValidate
-            onSubmit={dataSubmit}
+            onSubmit={formik.handleSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>

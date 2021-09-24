@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import signUp from "../assets/signUp.png";
 import google from "../assets/google.png";
-import { createUser, signUpProvider } from "../auth/firebase";
+import { createUser, SignUpProvider } from "../auth/firebase";
 import { useFormik } from "formik";
 import * as Yup from "yup"
 import { AuthContext } from "../context/AuthContext";
@@ -24,8 +24,6 @@ const initialValues = {
   email: "",
   password: "",
 };
-
-
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -49,18 +47,18 @@ export default function SignUp() {
  
   
   const {currentUser} = useContext(AuthContext)
-  console.log("currentuser: ", currentUser)
+  // console.log("currentuser: ", currentUser)
   if(currentUser) history.push("/main")
 
   const onSubmit = async (values) => {
-    console.log("Values:", values);
+    // console.log("Values:", values);
     await createUser(values.firstName, values.lastName, values.email, values.password)
     // console.log("submit")
     // console.log(currentUser)
   };
 
   const signUpWıthGoogle = () => {
-    signUpProvider();
+    SignUpProvider();
   }
 
   const formik = useFormik({ 
