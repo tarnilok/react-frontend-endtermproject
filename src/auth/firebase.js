@@ -6,7 +6,6 @@ import { successToastify, errorToastify } from "../styling/toastify";
 
 
 
-
 export const firebaseApp = firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -51,7 +50,8 @@ export const SignUpProvider = async () => {
   provider.setCustomParameters({ prompt: "select_account" });
   await firebase.auth().signInWithPopup(provider);
   
-  successToastify(`New user created successfully. Welcome 🖐`)
+
+  successToastify(`Welcome 🖐`)
 };
 
 export const userObserver = async (setCurrentUser) => {
