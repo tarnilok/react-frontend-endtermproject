@@ -45,16 +45,11 @@ const validationSchema = Yup.object({
 export default function SignUp() {
   const history = useHistory();
  
-  
   const {currentUser} = useContext(AuthContext)
-  // console.log("currentuser: ", currentUser)
   if(currentUser) history.push("/main")
 
   const onSubmit = async (values) => {
-    // console.log("Values:", values);
     await createUser(values.firstName, values.lastName, values.email, values.password)
-    // console.log("submit")
-    // console.log(currentUser)
   };
 
   const signUpWıthGoogle = () => {

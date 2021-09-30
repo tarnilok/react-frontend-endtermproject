@@ -6,6 +6,7 @@ import Main from "../pages/Main";
 import Navbar from "../components/Navbar";
 import Profile from "../pages/Profile";
 import NewCard from "../pages/NewCard";
+import DetailsCard from "../pages/DetailsCard";
 
 const RouterApp = () => {
   return (
@@ -17,6 +18,7 @@ const RouterApp = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/newcard" component={NewCard}/>
+          <Route exact path="/detailscard" component={DetailsCard}/>
         </Switch>
     </Router>
   );

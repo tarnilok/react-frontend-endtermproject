@@ -28,7 +28,7 @@ const Navbar = () => {
         <PopupState variant="popover" popupId="demo-popup-menu">
         {(popupState) => (
           <React.Fragment>
-            <Box component="img" variant="contained" {...bindTrigger(popupState)} src={personcircle} alt="circle person image" sx={{padding: "0", borderRadius:"50%", backgroundColor:"#046582", "&:hover": {cursor: "pointer" }, width:"40px", marginRight:"25px"}}></Box>
+            <Box component="img" variant="contained" {...bindTrigger(popupState)} src={personcircle} alt="circle person image" sx={{padding: "1px", borderRadius:"50%", "&:hover": {cursor: "pointer" }, width:"40px", marginRight:"25px", backgroundColor: "white"}}></Box>
             <Menu {...bindMenu(popupState)}>
               <MenuItem onClick={() => {history.push("/profile"); popupState.close()}}>Profile</MenuItem>
               <MenuItem onClick={() => {history.push("/newcard"); popupState.close()}}>New</MenuItem>
