@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Typography } from "@mui/material";
 import { useFetch } from "../auth/firebase";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -15,8 +17,13 @@ const Main = () => {
   const { cardList, isLoading } = useFetch();
   console.log(cardList);
 
+  const history = useHistory()
+  const {currentUser} = useContext(AuthContext)
+
   const handleDetails = (e) => {
-    console.log(e)
+    console.log("e: ",e)
+    currentUser ? history.push("/detailscard") : alert("Please Log In first to see the details!")
+
   }
   return (
     <Box sx={{backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)"}} minHeight="91.7vh" mt={0}>
@@ -27,7 +34,7 @@ const Main = () => {
           <CircularProgress color="success" size="7rem" />
         </Stack>
       ) : (
-        <Grid item sm="auto" xs="auto" container direction="row" marginLeft={7}  >
+        <Grid item sm="auto" xs="auto" container direction="row" marginLeft={7}>
           {cardList?.map((item) => {
             return (
               <Box key={item?.id} width="400px" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", m: 3}}>

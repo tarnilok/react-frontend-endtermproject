@@ -85,7 +85,7 @@ export const useFetch = () => {
 
       const cardArray = [];
       for (let id in cards) {
-        cardArray.push({ id, ...cards[id] });
+        cardArray.push({ id, ...cards[id]});
       }
       setcardList(cardArray);
       setIsLoading(false);

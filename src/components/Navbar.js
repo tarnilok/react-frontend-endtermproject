@@ -19,8 +19,8 @@ const Navbar = () => {
     <div style={{margin: 0}}>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary py-0">
         <div className="container-fluid py-2" style={{backgroundColor:"#046582"}}>
-          <img src= {richard} alt="richard watterson" className="bg-light border border-light border-3 rounded-circle " style={{width:"60px", marginLeft:"5px"}}/>
-          <a className="navbar-brand text-center fs-2 text-white " href="/main" onClick={() => history.push("/main")}>
+          <a  href="https://github.com/tarnilok" target="_blank" rel="noreferrer" title="My Github Page"><img src= {richard} alt="richard watterson" className="bg-light border border-light border-3 rounded-circle " style={{width:"60px", marginLeft:"5px"}}/></a>
+          <a className="navbar-brand text-center fs-2 text-white " href="/main" onClick={(e) => {e.preventDefault(); history.push("/main")}}>
             <code>{`──── <ChrisDev/> ────`}</code>
           </a>
 
@@ -28,7 +28,7 @@ const Navbar = () => {
         <PopupState variant="popover" popupId="demo-popup-menu">
         {(popupState) => (
           <React.Fragment>
-            <Box component="img" variant="contained" {...bindTrigger(popupState)} src={personcircle} alt="circle person image" sx={{padding: "1px", borderRadius:"50%", "&:hover": {cursor: "pointer" }, width:"40px", marginRight:"25px", backgroundColor: "white"}}></Box>
+            <Box component="img" variant="contained" {...bindTrigger(popupState)} src={personcircle} alt="circle person image" sx={{padding: "1px", borderRadius:"50%", "&:hover": {cursor: "pointer" }, width:"40px", marginRight:"10px", backgroundColor: "white"}}></Box>
             <Menu {...bindMenu(popupState)}>
               <MenuItem onClick={() => {history.push("/profile"); popupState.close()}}>Profile</MenuItem>
               <MenuItem onClick={() => {history.push("/newcard"); popupState.close()}}>New</MenuItem>

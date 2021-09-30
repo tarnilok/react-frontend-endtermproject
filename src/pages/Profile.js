@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { AuthContext } from "../context/AuthContext";
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 
 const Profile = () => {
     const {currentUser} = useContext(AuthContext)
