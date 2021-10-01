@@ -1,7 +1,7 @@
 ## Project Skeleton
 
 ```
-📁React-MilleStoneProject-FrontendEndTerm 
+📁React-MileStoneProject-FrontendEndTerm 
 |
 |----Readme.md         
 SOLUTION
