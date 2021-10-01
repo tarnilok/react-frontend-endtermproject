@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import Profile from "../pages/Profile";
 import NewCard from "../pages/NewCard";
 import DetailsCard from "../pages/DetailsCard";
-import UpdateCard from "../pages/updateCard";
+import UpdateCard from "../pages/UpdateCard";
 
 const RouterApp = () => {
   return (

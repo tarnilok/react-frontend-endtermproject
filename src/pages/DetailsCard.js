@@ -23,7 +23,7 @@ const DetailsCard = () => {
   console.log("from details: ", cardDetail);
   return (
     <Grid display="flex" justifyContent="center">
-      <Box maxWidth="md" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", m: 3 }}>
+      <Box maxWidth="md" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 15 }}>
         <Box sx={{ backgroundColor: "#E9E9E9" }}>
           <Grid component="img" src={cardDetail?.url} width="100%" borderRadius="10px 10px 0 0" maxHeight="400px" sx={{ objectFit: "fill" }}/>
           <Typography margin={1} sx={{ color: "#046582", fontFamily: "Girassol", fontWeight: "bolder", textTransform: "uppercase" }}>

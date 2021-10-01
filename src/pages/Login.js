@@ -30,7 +30,7 @@ export default function Login() {
   const history = useHistory();
 
   const { currentUser } = useContext(AuthContext);
-  if (currentUser) history.push("/main");
+  if (currentUser) history.push("/");
 
   const onSubmit = async (values) => {
     // console.log("Values:", values);
@@ -47,7 +47,7 @@ export default function Login() {
     validationSchema,
   });
   return (
-    <Box sx={{ backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight: "92.7vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11 }}>
+    <Box sx={{ backgroundImage: "url(https://picsum.photos/1600/900)", width: "100%", minHeight: "100vh", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", p: 11 }}>
       <Container
         component="main"
         maxWidth="xs"
@@ -55,6 +55,7 @@ export default function Login() {
           borderRadius: 3,
           boxShadow: "10px 10px 4px grey",
           backgroundColor: "#fff",
+          mt:10
         }}
       >
         <CssBaseline />

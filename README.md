@@ -8,20 +8,17 @@ SOLUTION
 ├── 📁public 
 │     └── index.html  
 ├── 📁src 
+│    ├── 📁assets     
 │    ├── 📁auth 
 │    │     └── firebase.js
 │    ├── 📁components 
-│    │     ├── Navbar.js
-│    │     ├── Main.js
-│    │     └── Footer.js
-│    ├── 📁redux 
-│    │     ├── action.js
-│    │     ├── actionTypes.js 
-│    │     └── reducer.js
-│    ├── 📁toastify
-│    │     └── toastify.js
-│    │ 
+│    │     └── Navbar.js
+│    ├── 📁context 
+│    │     └── AuthContext.js
+│    ├── 📁styling 
+│    │     └── toastify.js 
 │    ├── 📁pages 
+│    │     ├── UpdateCard.js
 │    │     ├── Login.js
 │    │     ├── Register.js
 │    │     ├── Main.js
@@ -52,14 +49,15 @@ SOLUTION
 - **Step 2 : Signuped** `https://firebase.google.com/` and created new app in firebase.
 
 - **Step 3 : Used** `https://firebase.google.com/docs/auth/web/start` and created `Authentication` operations.
+- **Step 4 : Used** `https://firebase.google.com/docs/database/web/start` and created `Realtime Database` operations.
 
-- **Step 4: Installled & Used** <pre>Material UI, Bootstrap, React toastify, formik & yup, redux state container,\
+- **Step 5: Installled & Used** <pre>Material UI, toastify, formik & yup, contextAPI,\
   random login background image from `https://picsum.photos/1600/900`, .env </pre>
 
 - **Step 5: Packages:**  <pre>
   npm install @mui/material
   npm install @material-ui/core
-  npm install @material-ui/icons
+  npm install @mui/icons-material
   npm install --save material-ui-popup-state
   npm install --save react-toastify
   npm install formik --save

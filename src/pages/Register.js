@@ -69,7 +69,7 @@ export default function SignUp() {
       sx={{
         backgroundImage: "url(https://picsum.photos/1600/900)",
         width: "100%",
-        minHeight: "92.7vh",
+        minHeight: "100vh",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -83,6 +83,7 @@ export default function SignUp() {
           borderRadius: 3,
           boxShadow: "10px 10px 4px grey",
           backgroundColor: "#fff",
+          mt:10
         }}
       >
         <CssBaseline />

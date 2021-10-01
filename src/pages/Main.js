@@ -27,8 +27,8 @@ const Main = () => {
     currentUser ? history.push("/detailscard") : alert("Please log in first to dive the deepness of my blogpage😁");
   };
   return (
-    <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)" }} minHeight="91.7vh" mt={0}>
-      <Typography textAlign="center" sx={{ fontSize: "40px", mt: "1", fontFamily: "Girassol", fontWeight: "bolder", color: "#046582" }}>{`─── DASHBOARD ───`}</Typography>
+    <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)", paddingY:"90px" }} minHeight="100vh">
+      <Typography textAlign="center" sx={{ fontSize: "40px", fontFamily: "Girassol", fontWeight: "bolder", color: "#046582" }}>{`─── DASHBOARD ───`}</Typography>
 
       {isLoading ? (
         <Stack sx={{ display: "flex", justifyContent: "center", mt: "50px" }} direction="row">

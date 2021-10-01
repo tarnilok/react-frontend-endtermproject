@@ -3,62 +3,105 @@ import { useHistory } from "react-router-dom";
 import richard from "../assets/richard.jpeg";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import personcircle from "../assets/person-circle.svg"
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import Box from "@mui/material/Box";
 import { signOut } from "../auth/firebase";
 
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
 const Navbar = () => {
   const history = useHistory();
-  const {currentUser} = useContext(AuthContext);
-  
+  const { currentUser } = useContext(AuthContext);
+
   return (
-    <div style={{margin: 0}}>
-      <nav className="navbar navbar-expand-lg navbar-light bg-primary py-0">
-        <div className="container-fluid py-2" style={{backgroundColor:"#046582"}}>
-          <a  href="https://github.com/tarnilok" target="_blank" rel="noreferrer" title="My Github Page"><img src= {richard} alt="richard watterson" className="bg-light border border-light border-3 rounded-circle " style={{width:"60px", marginLeft:"5px"}}/></a>
-          <a className="navbar-brand text-center fs-2 text-white " href="/" onClick={(e) => {e.preventDefault(); history.push("/")}}>
-            <code>{`──── <ChrisDev/> ────`}</code>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="fixed" sx={{ backgroundColor: "#046582" }}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", paddingY: "5px", backgroundColor: "#046582" }}>
+          <a href="https://github.com/tarnilok" target="_blank" rel="noreferrer" title="My Github Page">
+            <img src={richard} alt="richard watterson" style={{ width: "60px", backgroundColor: "white", borderRadius: "50%" }} />
           </a>
-
-        {currentUser ?
-        <PopupState variant="popover" popupId="demo-popup-menu">
-        {(popupState) => (
-          <React.Fragment>
-            <Box component="img" variant="contained" {...bindTrigger(popupState)} src={personcircle} alt="circle person image" sx={{padding: "1px", borderRadius:"50%", "&:hover": {cursor: "pointer" }, width:"40px", marginRight:"25px", backgroundColor: "white"}}></Box>
-            <Menu {...bindMenu(popupState)}>
-              <MenuItem onClick={() => {history.push("/profile"); popupState.close()}}>Profile</MenuItem>
-              <MenuItem onClick={() => {history.push("/newcard"); popupState.close()}}>New</MenuItem>
-              <MenuItem onClick={() => {signOut(); popupState.close(); history.push("/")}}>Logout</MenuItem>
-            </Menu>
-          </React.Fragment>
-        )}
-      </PopupState>
-        :
-        <div className="buttons">
-            <button
-              type="button"
-              className="ms-2 btn btn-outline-light"
-              onClick={() => history.push("/login")}
-            >
-              Sign In
-            </button>
-
-            <button
-              type="button"
-              className="ms-2 btn btn-outline-light"
-              onClick={() => history.push("/register")}
-            >
-              Sign Up
-            </button>
-          </div>
-        }   
-        </div>
-      </nav>
-    </div>
+          <Typography
+            variant="h4"
+            sx={{ fontFamily: "Girassol", textAlign: "center", "[theme.breakpoints.up(`sm`)]": { display: "block" }, "&:hover": { cursor: "pointer" } }}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              history.push("/");
+            }}
+          >
+            <code style={{ color: "white" }}>{`──── <ChrisDev/> ────`}</code>
+          </Typography>
+          {currentUser ? (
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {(popupState) => (
+                <React.Fragment>
+                  <AccountCircle {...bindTrigger(popupState)} sx={{ fontSize: "40px", "&:hover": { cursor: "pointer" }}} />
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      onClick={() => {
+                        history.push("/profile");
+                        popupState.close();
+                      }}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        history.push("/newcard");
+                        popupState.close();
+                      }}
+                    >
+                      New
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        signOut();
+                        popupState.close();
+                        history.push("/");
+                      }}
+                    >
+                      Logout
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+          ) : (
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {(popupState) => (
+                <React.Fragment>
+                  <AccountCircle {...bindTrigger(popupState)} sx={{ fontSize: "40px", "&:hover": { cursor: "pointer" } }} />
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      onClick={() => {
+                        history.push("/login");
+                        popupState.close();
+                      }}
+                    >
+                      Sign In
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        history.push("/register");
+                        popupState.close();
+                      }}
+                    >
+                      Sign Up
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+          )}
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 

@@ -38,7 +38,7 @@ const handleChange = (e) => {
     history.push("/")
   }
   return (
-    <Container component="main" maxWidth="sm" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 5, border: 1 }}>
+    <Container component="main" maxWidth="sm" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 15, border: 1 }}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
         <Avatar src={updateData} alt="signup" sx={{ width: 150, height: 150, borderRadius: 0 }} />
