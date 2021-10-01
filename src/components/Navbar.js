@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-primary py-0">
         <div className="container-fluid py-2" style={{backgroundColor:"#046582"}}>
           <a  href="https://github.com/tarnilok" target="_blank" rel="noreferrer" title="My Github Page"><img src= {richard} alt="richard watterson" className="bg-light border border-light border-3 rounded-circle " style={{width:"60px", marginLeft:"5px"}}/></a>
-          <a className="navbar-brand text-center fs-2 text-white " href="/main" onClick={(e) => {e.preventDefault(); history.push("/main")}}>
+          <a className="navbar-brand text-center fs-2 text-white " href="/" onClick={(e) => {e.preventDefault(); history.push("/")}}>
             <code>{`──── <ChrisDev/> ────`}</code>
           </a>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
             <Menu {...bindMenu(popupState)}>
               <MenuItem onClick={() => {history.push("/profile"); popupState.close()}}>Profile</MenuItem>
               <MenuItem onClick={() => {history.push("/newcard"); popupState.close()}}>New</MenuItem>
-              <MenuItem onClick={() => {signOut(); popupState.close(); history.push("/main")}}>Logout</MenuItem>
+              <MenuItem onClick={() => {signOut(); popupState.close(); history.push("/")}}>Logout</MenuItem>
             </Menu>
           </React.Fragment>
         )}

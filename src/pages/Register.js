@@ -46,7 +46,7 @@ export default function SignUp() {
   const history = useHistory();
  
   const {currentUser} = useContext(AuthContext)
-  if(currentUser) history.push("/main")
+  if(currentUser) history.push("/")
 
   const onSubmit = async (values) => {
     await createUser(values.firstName, values.lastName, values.email, values.password)

@@ -35,10 +35,10 @@ const handleChange = (e) => {
     const today = new Date().toISOString().slice(0,10)
     editHandler({...cardDetail, title: title.value, url: url.value, content: content.value, date: today})
     e.target.reset()
-    history.push("/main")
+    history.push("/")
   }
   return (
-    <Container component="main" maxWidth="xs" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 5, border: 1 }}>
+    <Container component="main" maxWidth="sm" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 5, border: 1 }}>
       <CssBaseline />
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", p: 2 }}>
         <Avatar src={updateData} alt="signup" sx={{ width: 150, height: 150, borderRadius: 0 }} />
