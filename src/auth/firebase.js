@@ -94,3 +94,9 @@ export const useFetch = () => {
 
   return { cardList, isLoading };
 };
+
+export const deleteHandler = async (id) => {
+  const milestoneRef = firebase.database().ref("milestone").child(id);
+  await milestoneRef.remove();
+  successToastify("Deleted successfully");
+}
