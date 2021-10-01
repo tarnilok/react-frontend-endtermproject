@@ -100,3 +100,10 @@ export const deleteHandler = async (id) => {
   await milestoneRef.remove();
   successToastify("Deleted successfully");
 }
+
+
+export const editHandler = async (info) => {
+  const milestoneRef = firebase.database().ref("milestone").child(info.id);
+  await milestoneRef.update(info)
+  successToastify("Updated Successfully")
+}

@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Profile from "../pages/Profile";
 import NewCard from "../pages/NewCard";
 import DetailsCard from "../pages/DetailsCard";
+import UpdateCard from "../pages/updateCard";
 
 const RouterApp = () => {
   return (
@@ -19,6 +20,7 @@ const RouterApp = () => {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/newcard" component={NewCard}/>
           <Route exact path="/detailscard" component={DetailsCard}/>
+          <Route exact path="/updatecard" component={UpdateCard}/>
         </Switch>
     </Router>
   );

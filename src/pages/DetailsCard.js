@@ -48,7 +48,7 @@ const DetailsCard = () => {
           <CommentIcon sx={{ marginX: "7px", fontSize: "27px", color: "#A1A1A1", "&:hover": { cursor: "pointer", color: "#B9B9B9" }, "&:active": { transform: "scale(1.2)", color: "#046582" } }} />
           <ShareIcon sx={{ fontSize: "30px", color: "#A1A1A1", "&:hover": { cursor: "pointer", color: "#B9B9B9" }, "&:active": { transform: "scale(1.2)", color: "#FBD601" } }} />
           <ButtonGroup variant="contained" size="large"  sx={{ display: "flex", justifyContent: "center", pb:"10px" }}>
-            <Button color="secondary" startIcon={<UpdateIcon color="primary" />}>
+            <Button color="secondary" startIcon={<UpdateIcon color="primary" />} onClick={() => history.push("/updatecard")}>
               Update
             </Button>
             <Button color="primary" endIcon={<DeleteIcon color="secondary" />} onClick={() => { deleteHandler(cardDetail.id); history.push("/main")}}>

@@ -1,21 +1,25 @@
 import {createContext, useState, useEffect} from "react";
 import { userObserver } from "../auth/firebase";
 import { useFetch } from "../auth/firebase";
-// import Main from "../pages/Main";
+
 
 export const AuthContext = createContext();
 
 function AuthContextProvider(props) {
     const [currentUser, setCurrentUser] = useState();
     const [cardDetail, setCardDetail] = useState({})
-    const { cardList} = useFetch();
 
     useEffect(() => {
         userObserver(setCurrentUser)
     }, [])
 
+    const values = {
+        currentUser,
+        setCardDetail,
+        cardDetail
+    }
     return(
-        <AuthContext.Provider value={{currentUser, cardList,setCardDetail,cardDetail}}>
+        <AuthContext.Provider value={values}>
             {props.children}
         </AuthContext.Provider>
     )
