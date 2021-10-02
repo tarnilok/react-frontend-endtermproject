@@ -27,6 +27,7 @@ SOLUTION
 │    │     └── DetailsCard.js        
 │    ├── 📁router
 │    │     └── Router.js
+│    │     ├── PrivateRouter.js 
 │    ├── App.js
 │    ├── App.css
 │    ├── index.js
