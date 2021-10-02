@@ -57,6 +57,8 @@ SOLUTION
 - **Step 5: Packages:**  <pre>
   npm install @mui/material
   npm install @mui/icons-material
+  npm install @emotion/react
+  npm install @emotion/styled
   npm install --save material-ui-popup-state
   npm install --save react-toastify
   npm install formik --save
