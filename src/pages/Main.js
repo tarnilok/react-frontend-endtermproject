@@ -3,7 +3,6 @@ import { Typography } from "@mui/material";
 import { useFetch } from "../auth/firebase";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
@@ -14,20 +13,19 @@ import CommentIcon from "@mui/icons-material/Comment";
 import ShareIcon from "@mui/icons-material/Share";
 
 const Main = () => {
-  
   const { cardList, isLoading } = useFetch();
   console.log(cardList);
 
   const history = useHistory();
-  const { currentUser,setCardDetail } = useContext(AuthContext);
+  const { currentUser, setCardDetail } = useContext(AuthContext);
 
   const handleDetails = (e) => {
     console.log("from main: ", e);
-    setCardDetail(e)
+    setCardDetail(e);
     currentUser ? history.push("/detailscard") : alert("Please log in first to dive the deepness of my blogpage😁");
   };
   return (
-    <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)", paddingY:"90px" }} minHeight="100vh">
+    <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)", paddingY: "90px" }} minHeight="100vh">
       <Typography textAlign="center" sx={{ fontSize: "40px", fontFamily: "Girassol", fontWeight: "bolder", color: "#046582" }}>{`─── DASHBOARD ───`}</Typography>
 
       {isLoading ? (

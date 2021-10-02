@@ -8,11 +8,9 @@ import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import Box from "@mui/material/Box";
 import { signOut } from "../auth/firebase";
-
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
 const Navbar = () => {
@@ -41,7 +39,7 @@ const Navbar = () => {
             <PopupState variant="popover" popupId="demo-popup-menu">
               {(popupState) => (
                 <React.Fragment>
-                  <AccountCircle {...bindTrigger(popupState)} sx={{ fontSize: "40px", "&:hover": { cursor: "pointer" }}} />
+                  <AccountCircle {...bindTrigger(popupState)} sx={{ fontSize: "40px", "&:hover": { cursor: "pointer" } }} />
                   <Menu {...bindMenu(popupState)}>
                     <MenuItem
                       onClick={() => {

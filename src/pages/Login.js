@@ -11,7 +11,6 @@ import signInImage from "../assets/signIn.png";
 import google from "../assets/google.png";
 import { useFormik } from "formik";
 import { AuthContext } from "../context/AuthContext";
-
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import { signIn, SignUpProvider } from "../auth/firebase";
@@ -33,7 +32,6 @@ export default function Login() {
   if (currentUser) history.push("/");
 
   const onSubmit = async (values) => {
-    // console.log("Values:", values);
     await signIn(values.email, values.password);
   };
 
@@ -55,7 +53,7 @@ export default function Login() {
           borderRadius: 3,
           boxShadow: "10px 10px 4px grey",
           backgroundColor: "#fff",
-          mt:10
+          mt: 10,
         }}
       >
         <CssBaseline />

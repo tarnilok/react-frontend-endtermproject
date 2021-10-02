@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -12,11 +12,8 @@ import signUp from "../assets/signUp.png";
 import google from "../assets/google.png";
 import { createUser, SignUpProvider } from "../auth/firebase";
 import { useFormik } from "formik";
-import * as Yup from "yup"
+import * as Yup from "yup";
 import { AuthContext } from "../context/AuthContext";
-
-
-
 
 const initialValues = {
   firstName: "",
@@ -26,43 +23,34 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  firstName: Yup.string()
-    .max(15, "Must be 15 characters or less")
-    .required("Required.Enter First Name"),
-  lastName: Yup.string()
-    .max(15, "Must be 15 characters or less")
-    .required("Required.Enter Last Name"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Required.Enter email address"),
+  firstName: Yup.string().max(15, "Must be 15 characters or less").required("Required.Enter First Name"),
+  lastName: Yup.string().max(15, "Must be 15 characters or less").required("Required.Enter Last Name"),
+  email: Yup.string().email("Invalid email address").required("Required.Enter email address"),
   password: Yup.string()
     .required("No password provided.")
     .min(6, "Password is too short - should be 6 chars minimum.")
     .matches(/(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*\d)/, "Password can only contain at least one digit and Latin letters with at least one lowercase and uppercase."),
 });
 
-
 export default function SignUp() {
   const history = useHistory();
- 
-  const {currentUser} = useContext(AuthContext)
-  if(currentUser) history.push("/")
+
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) history.push("/");
 
   const onSubmit = async (values) => {
-    await createUser(values.firstName, values.lastName, values.email, values.password)
+    await createUser(values.firstName, values.lastName, values.email, values.password);
   };
 
   const signUpWıthGoogle = () => {
     SignUpProvider();
-  }
+  };
 
-  const formik = useFormik({ 
-    initialValues, 
+  const formik = useFormik({
+    initialValues,
     onSubmit,
-    validationSchema
-  })
-  
-
+    validationSchema,
+  });
 
   return (
     <Box
@@ -83,7 +71,7 @@ export default function SignUp() {
           borderRadius: 3,
           boxShadow: "10px 10px 4px grey",
           backgroundColor: "#fff",
-          mt:10
+          mt: 10,
         }}
       >
         <CssBaseline />
@@ -111,61 +99,20 @@ export default function SignUp() {
           <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  fullWidth
-                  id="firstName"
-                  variant="filled"
-                  label="First Name"
-                  onChange={formik.handleChange} 
-                  value={formik.values.firstName}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.firstName && formik.errors.firstName ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.firstName} </Box> : null}
+                <TextField autoComplete="fname" name="firstName" fullWidth id="firstName" variant="filled" label="First Name" onChange={formik.handleChange} value={formik.values.firstName} onBlur={formik.handleBlur} />
+                {formik.touched.firstName && formik.errors.firstName ? <Box sx={{ color: "red", fontSize: 13, ml: 1 }}>{formik.errors.firstName} </Box> : null}
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  id="lastName"
-                  variant="filled"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="lname"
-                  onChange={formik.handleChange} 
-                  value={formik.values.lastName}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.lastName && formik.errors.lastName ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.lastName} </Box> : null}
+                <TextField fullWidth id="lastName" variant="filled" label="Last Name" name="lastName" autoComplete="lname" onChange={formik.handleChange} value={formik.values.lastName} onBlur={formik.handleBlur} />
+                {formik.touched.lastName && formik.errors.lastName ? <Box sx={{ color: "red", fontSize: 13, ml: 1 }}>{formik.errors.lastName} </Box> : null}
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  id="email"
-                  variant="filled"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  onChange={formik.handleChange} 
-                  value={formik.values.email}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.email && formik.errors.email ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.email} </Box> : null}
+                <TextField fullWidth id="email" variant="filled" label="Email Address" name="email" autoComplete="email" onChange={formik.handleChange} value={formik.values.email} onBlur={formik.handleBlur} />
+                {formik.touched.email && formik.errors.email ? <Box sx={{ color: "red", fontSize: 13, ml: 1 }}>{formik.errors.email} </Box> : null}
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  variant="filled"
-                  autoComplete="new-password"
-                  onChange={formik.handleChange} 
-                  value={formik.values.password}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.password && formik.errors.password ? <Box sx={{color: "red", fontSize: 13, ml:1}}>{formik.errors.password} </Box> : null}
+                <TextField fullWidth name="password" label="Password" type="password" id="password" variant="filled" autoComplete="new-password" onChange={formik.handleChange} value={formik.values.password} onBlur={formik.handleBlur} />
+                {formik.touched.password && formik.errors.password ? <Box sx={{ color: "red", fontSize: 13, ml: 1 }}>{formik.errors.password} </Box> : null}
               </Grid>
             </Grid>
             <Button
@@ -182,33 +129,28 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
-            </Box>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{
-                mb: 2,
-                bgcolor: "#fff",
-                color: "#000",
-                "&:hover": { bgcolor: "#808080" },
-                fontWeight: "bold",
-              }}
-              onClick={signUpWıthGoogle}
-            >
-              WITH
-              <Avatar
-                src={google}
-                alt="google"
-                sx={{ borderRadius: 0, width: 70, height: 24, ml: 1 }}
-              />
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to="/login">Already have an account? Sign in</Link>
-              </Grid>
+          </Box>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mb: 2,
+              bgcolor: "#fff",
+              color: "#000",
+              "&:hover": { bgcolor: "#808080" },
+              fontWeight: "bold",
+            }}
+            onClick={signUpWıthGoogle}
+          >
+            WITH
+            <Avatar src={google} alt="google" sx={{ borderRadius: 0, width: 70, height: 24, ml: 1 }} />
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link to="/login">Already have an account? Sign in</Link>
             </Grid>
-          
+          </Grid>
         </Box>
       </Container>
     </Box>
