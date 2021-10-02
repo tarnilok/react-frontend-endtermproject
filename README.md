@@ -56,7 +56,6 @@ SOLUTION
 
 - **Step 5: Packages:**  <pre>
   npm install @mui/material
-  npm install @material-ui/core
   npm install @mui/icons-material
   npm install --save material-ui-popup-state
   npm install --save react-toastify
