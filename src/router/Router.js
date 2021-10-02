@@ -13,16 +13,16 @@ const RouterApp = () => {
   return (
     <Router>
       <Navbar />
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Main} />
-          <Route exact path="/react-frontend-milestoneproject" component={Main}/>
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile}/>
-          <Route exact path="/newcard" component={NewCard}/>
-          <Route exact path="/detailscard" component={DetailsCard}/>
-          <Route exact path="/updatecard" component={UpdateCard}/>
-        </Switch>
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Main} />
+        <Route exact path="/react-frontend-milestoneproject" component={Main} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/newcard" component={NewCard} />
+        <Route exact path="/detailscard" component={DetailsCard} />
+        <Route exact path="/updatecard" component={UpdateCard} />
+      </Switch>
     </Router>
   );
 };
