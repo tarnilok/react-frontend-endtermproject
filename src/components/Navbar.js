@@ -26,7 +26,7 @@ const Navbar = () => {
           </a>
           <Typography
             variant="h4"
-            sx={{ fontFamily: "Girassol", textAlign: "center", "[theme.breakpoints.up(`sm`)]": { display: "block" }, "&:hover": { cursor: "pointer" } }}
+            sx={{ fontFamily: "Girassol", textAlign: "center", "&:hover": { cursor: "pointer" } }}
             href="/"
             onClick={(e) => {
               e.preventDefault();

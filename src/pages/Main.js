@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Typography } from "@mui/material";
 import { useFetch } from "../auth/firebase";
 import { useHistory } from "react-router-dom";
@@ -14,13 +14,10 @@ import ShareIcon from "@mui/icons-material/Share";
 
 const Main = () => {
   const { cardList, isLoading } = useFetch();
-  console.log(cardList);
-
   const history = useHistory();
   const { currentUser, setCardDetail } = useContext(AuthContext);
 
   const handleDetails = (e) => {
-    console.log("from main: ", e);
     setCardDetail(e);
     currentUser ? history.push("/detailscard") : alert("Please log in first to dive the deepness of my blogpage😁");
   };
@@ -33,7 +30,8 @@ const Main = () => {
           <CircularProgress color="success" size="7rem" />
         </Stack>
       ) : (
-        <Grid item sm="auto" xs="auto" container direction="row" marginLeft={7}>
+        <Box >
+        <Grid item  container justifyContent="flex-start">
           {cardList.map((item) => {
             return (
               <Box key={item?.id} width="400px" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", m: 3 }}>
@@ -45,13 +43,13 @@ const Main = () => {
                   <Typography variant="subtitle2" paddingX={1}>
                     {item.date}
                   </Typography>
-                  <Grid paddingX={1} height={50} sx={{ overflow: "hidden", display: "-webkit-box", "-webkit-line-clamp": "2", "-webkit-box-orient": "vertical" }}>
+                  <Grid paddingX={1} height={45} sx={{ overflow: "hidden", display: "-webkit-box", "-webkit-line-clamp": "2", "-webkit-box-orient": "vertical" }}>
                     {item.content}
                   </Grid>
                 </Box>
                 <Grid marginX={1} marginTop={1.1}>
-                  <AccountBoxIcon color="inherit" sx={{ fontSize: "40px" }} />
-                  <Typography display="inline" marginLeft={1}>
+                  <AccountBoxIcon color="inherit"  sx={{ fontSize: "40px", verticalAlign:"-15px" }} />
+                  <Typography display="inline" marginLeft={1} >
                     {item.email}
                   </Typography>
                 </Grid>
@@ -64,6 +62,7 @@ const Main = () => {
             );
           })}
         </Grid>
+        </Box>
       )}
     </Box>
   );

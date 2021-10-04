@@ -17,7 +17,7 @@ import { deleteHandler } from "../auth/firebase";
 const DetailsCard = () => {
   const { cardDetail, currentUser } = useContext(AuthContext);
   const history = useHistory();
-  console.log("from details: ", cardDetail);
+  
   return (
     <Grid display="flex" justifyContent="center">
       <Box maxWidth="md" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 15 }}>
@@ -34,17 +34,17 @@ const DetailsCard = () => {
           </Grid>
         </Box>
         <Grid marginX={1} marginTop={1.1}>
-          <AccountBoxIcon color="inherit" sx={{ fontSize: "40px" }} />
+          <AccountBoxIcon color="inherit" sx={{ fontSize: "40px", verticalAlign:"-15px" }} />
           <Typography display="inline" marginLeft={1}>
             {cardDetail.email}
           </Typography>
         </Grid>
-        <Grid marginX={1.5}>
+        <Grid marginX={1.5} marginY={1.2}>
           <FavoriteIcon sx={{ fontSize: "30px", color: "#A1A1A1", "&:hover": { cursor: "pointer", color: "#B9B9B9" }, "&:active": { transform: "scale(1.2)", color: "#CC0000" } }} />
           <CommentIcon sx={{ marginX: "7px", fontSize: "27px", color: "#A1A1A1", "&:hover": { cursor: "pointer", color: "#B9B9B9" }, "&:active": { transform: "scale(1.2)", color: "#046582" } }} />
           <ShareIcon sx={{ fontSize: "30px", color: "#A1A1A1", "&:hover": { cursor: "pointer", color: "#B9B9B9" }, "&:active": { transform: "scale(1.2)", color: "#FBD601" } }} />
           {currentUser.email === cardDetail.email ? (
-            <ButtonGroup variant="contained" size="large" sx={{ display: "flex", justifyContent: "center", pb: "10px" }}>
+            <ButtonGroup variant="contained" size="large" sx={{ display: "flex", justifyContent: "center", p: "10px" }}>
               <Button color="secondary" startIcon={<UpdateIcon color="primary" />} onClick={() => history.push("/updatecard")}>
                 Update
               </Button>
