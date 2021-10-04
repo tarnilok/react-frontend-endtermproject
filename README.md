@@ -40,7 +40,7 @@ SOLUTION
 
 ## Outcome
 
-![react-frontend-endtermproject]()
+![milestoneproject](milestoneproject.gif)
 
 
 ## Steps to Solution
