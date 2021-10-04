@@ -23,11 +23,11 @@ SOLUTION
 │    │     ├── Register.js
 │    │     ├── Main.js
 │    │     ├── Profile.js 
-│    │     ├── NewCard.js 
-│    │     └── DetailsCard.js        
+│    │      NewCard.js 
+│    │      DetailsCard.js        
 │    ├── 📁router
-│    │     └── Router.js
-│    │     ├── PrivateRouter.js 
+│    │     ├── Router.js
+│    │     └── PrivateRouter.js 
 │    ├── App.js
 │    ├── App.css
 │    ├── index.js
