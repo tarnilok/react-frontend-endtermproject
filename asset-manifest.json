@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-frontend-milestoneproject/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/react-frontend-milestoneproject/static/js/main.a25c0f89.chunk.js",
-    "main.js.map": "/react-frontend-milestoneproject/static/js/main.a25c0f89.chunk.js.map",
-    "runtime-main.js": "/react-frontend-milestoneproject/static/js/runtime-main.3e75c3e1.js",
-    "runtime-main.js.map": "/react-frontend-milestoneproject/static/js/runtime-main.3e75c3e1.js.map",
-    "static/css/2.0975cee1.chunk.css": "/react-frontend-milestoneproject/static/css/2.0975cee1.chunk.css",
-    "static/js/2.e37c0312.chunk.js": "/react-frontend-milestoneproject/static/js/2.e37c0312.chunk.js",
-    "static/js/2.e37c0312.chunk.js.map": "/react-frontend-milestoneproject/static/js/2.e37c0312.chunk.js.map",
+    "main.js": "/react-frontend-milestoneproject/static/js/main.66d05869.chunk.js",
+    "main.js.map": "/react-frontend-milestoneproject/static/js/main.66d05869.chunk.js.map",
+    "runtime-main.js": "/react-frontend-milestoneproject/static/js/runtime-main.d34204c9.js",
+    "runtime-main.js.map": "/react-frontend-milestoneproject/static/js/runtime-main.d34204c9.js.map",
+    "static/css/2.f4c56af9.chunk.css": "/react-frontend-milestoneproject/static/css/2.f4c56af9.chunk.css",
+    "static/js/2.d31606d9.chunk.js": "/react-frontend-milestoneproject/static/js/2.d31606d9.chunk.js",
+    "static/js/2.d31606d9.chunk.js.map": "/react-frontend-milestoneproject/static/js/2.d31606d9.chunk.js.map",
     "index.html": "/react-frontend-milestoneproject/index.html",
-    "static/css/2.0975cee1.chunk.css.map": "/react-frontend-milestoneproject/static/css/2.0975cee1.chunk.css.map",
+    "static/css/2.f4c56af9.chunk.css.map": "/react-frontend-milestoneproject/static/css/2.f4c56af9.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/react-frontend-milestoneproject/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.e37c0312.chunk.js.LICENSE.txt": "/react-frontend-milestoneproject/static/js/2.e37c0312.chunk.js.LICENSE.txt",
+    "static/js/2.d31606d9.chunk.js.LICENSE.txt": "/react-frontend-milestoneproject/static/js/2.d31606d9.chunk.js.LICENSE.txt",
     "static/media/google.d1e31f45.png": "/react-frontend-milestoneproject/static/media/google.d1e31f45.png",
     "static/media/newCard.f862a8ea.png": "/react-frontend-milestoneproject/static/media/newCard.f862a8ea.png",
     "static/media/richard.3ea4c088.jpeg": "/react-frontend-milestoneproject/static/media/richard.3ea4c088.jpeg",
@@ -20,10 +20,10 @@
     "static/media/updateData.04290c99.png": "/react-frontend-milestoneproject/static/media/updateData.04290c99.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3e75c3e1.js",
-    "static/css/2.0975cee1.chunk.css",
-    "static/js/2.e37c0312.chunk.js",
+    "static/js/runtime-main.d34204c9.js",
+    "static/css/2.f4c56af9.chunk.css",
+    "static/js/2.d31606d9.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.a25c0f89.chunk.js"
+    "static/js/main.66d05869.chunk.js"
   ]
 }
