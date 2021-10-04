@@ -26,7 +26,7 @@ const Navbar = () => {
           </a>
           <Typography
             variant="h4"
-            sx={{ fontFamily: "Girassol", textAlign: "center", "&:hover": { cursor: "pointer" } }}
+            sx={{ fontFamily: "Girassol", textAlign: "center", "&:hover": { cursor: "pointer" }, "@media(max-width:600px)" : {fontSize: "1rem"} }}
             href="/"
             onClick={(e) => {
               e.preventDefault();

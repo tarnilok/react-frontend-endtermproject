@@ -23,18 +23,18 @@ const Main = () => {
   };
   return (
     <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)", paddingY: "90px" }} minHeight="100vh">
-      <Typography textAlign="center" sx={{ fontSize: "40px", fontFamily: "Girassol", fontWeight: "bolder", color: "#046582" }}>{`─── DASHBOARD ───`}</Typography>
+      <Typography textAlign="center" sx={{ fontSize: "40px", fontFamily: "Girassol", fontWeight: "bolder", color: "#046582", "@media(max-width:600px)" : {fontSize: "1.7rem"} }}>{`─── DASHBOARD ───`}</Typography>
 
       {isLoading ? (
         <Stack sx={{ display: "flex", justifyContent: "center", mt: "50px" }} direction="row">
           <CircularProgress color="success" size="7rem" />
         </Stack>
       ) : (
-        <Box >
-        <Grid item  container justifyContent="flex-start">
+        <Box>
+        <Grid item  container >
           {cardList.map((item) => {
             return (
-              <Box key={item?.id} width="400px" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", m: 3 }}>
+              <Box key={item?.id} width="400px" flexShrink="1"  sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mx:"35px", mb:"45px"}}>
                 <Box variant="button" onClick={() => handleDetails(item)} sx={{ "&:hover": { cursor: "pointer" }, backgroundColor: "#E9E9E9" }}>
                   <Grid component="img" src={item?.url} width="100%" height="200px" borderRadius="10px 10px 0 0" sx={{ objectFit: "cover" }} />
                   <Typography margin={1} sx={{ color: "#046582", fontFamily: "Girassol", fontWeight: "bolder", textTransform: "uppercase", overflow: "hidden", display: "-webkit-box", "-webkit-line-clamp": "1", "-webkit-box-orient": "vertical" }}>

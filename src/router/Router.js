@@ -22,7 +22,7 @@ const RouterApp = () => {
 
         <PrivateRouter path="/profile" component={Profile} />
         <PrivateRouter path="/newcard" component={NewCard} />
-        <PrivateRouter path="/detailscard" component={DetailsCard}/>
+        <PrivateRouter path="/detailscard" component={DetailsCard} />
         <PrivateRouter path="/updatecard" component={UpdateCard} />
       </Switch>
     </Router>
