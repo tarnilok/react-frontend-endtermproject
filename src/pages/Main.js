@@ -18,8 +18,11 @@ const Main = () => {
   const { currentUser, setCardDetail } = useContext(AuthContext);
 
   const handleDetails = (e) => {
-    setCardDetail(e);
-    currentUser ? history.push("/detailscard") : alert("Please log in first to dive the deepness of my blogpage😁");
+    if(currentUser) {  
+      setCardDetail(e);
+      history.push("/detailscard")}  
+    else { 
+    alert("Please log in first to dive the deepness of my blogpage😁")}
   };
   return (
     <Box sx={{ backgroundImage: "linear-gradient(to top, #accbee 0%, #e7f0fd 100%)", paddingY: "90px" }} minHeight="100vh">
