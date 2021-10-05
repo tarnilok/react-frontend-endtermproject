@@ -52,7 +52,7 @@
     "gh-pages": "^3.2.3"
   },
   "engines": {
-    "node": "14.x",
+    "node": "10.x",
     "npm": "6.x"
   }
 }
