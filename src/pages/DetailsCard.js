@@ -17,7 +17,7 @@ import { deleteHandler } from "../auth/firebase";
 const DetailsCard = () => {
   const { cardDetail, currentUser } = useContext(AuthContext);
   const history = useHistory();
-  
+
   return (
     <Grid display="flex" justifyContent="center">
       <Box maxWidth="md" sx={{ borderRadius: 3, boxShadow: "10px 10px 4px grey", backgroundColor: "#fff", mt: 15 }}>
@@ -34,7 +34,7 @@ const DetailsCard = () => {
           </Grid>
         </Box>
         <Grid marginX={1} marginTop={1.1}>
-          <AccountBoxIcon color="inherit" sx={{ fontSize: "40px", verticalAlign:"-15px" }} />
+          <AccountBoxIcon color="inherit" sx={{ fontSize: "40px", verticalAlign: "-15px" }} />
           <Typography display="inline" marginLeft={1}>
             {cardDetail.email}
           </Typography>

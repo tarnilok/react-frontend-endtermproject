@@ -14,10 +14,7 @@ import { editHandler } from "../auth/firebase";
 
 const UpdateCard = () => {
   const history = useHistory();
-  const { currentUser, cardDetail } = useContext(AuthContext);
-  console.log("from cardetail: ", cardDetail);
-  console.log("from currentuser: ", currentUser);
-
+  const { cardDetail } = useContext(AuthContext);
 
   const handleChangeInfoSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +33,7 @@ const UpdateCard = () => {
         <Box component="form" onSubmit={handleChangeInfoSubmit} id="myForm2" sx={{ mt: 3, method: "POST" }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField  name="title" defaultValue={cardDetail.title} fullWidth id="title" variant="filled" label="Title" required />
+              <TextField name="title" defaultValue={cardDetail.title} fullWidth id="title" variant="filled" label="Title" required />
             </Grid>
             <Grid item xs={12}>
               <TextField fullWidth id="url" variant="filled" defaultValue={cardDetail.url} label="Image URL" name="url" autoComplete="url" required />

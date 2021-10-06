@@ -64,12 +64,12 @@ export const signOut = async () => {
 
 export const addInfo = async (info) => {
   try {
-  const milestoneRef = await firebase.database().ref("milestone");
-  await milestoneRef.push(info);
-  successToastify("Added successfully");
-} catch (error) {
-  errorToastify("Something went wrong, try again!");
-}
+    const milestoneRef = await firebase.database().ref("milestone");
+    await milestoneRef.push(info);
+    successToastify("Added successfully");
+  } catch (error) {
+    errorToastify("Something went wrong, try again!");
+  }
 };
 
 export const useFetch = () => {
@@ -85,7 +85,7 @@ export const useFetch = () => {
 
       const cardArray = [];
       for (let id in cards) {
-        cardArray.push({ id, ...cards[id]});
+        cardArray.push({ id, ...cards[id] });
       }
       setcardList(cardArray);
       setIsLoading(false);
@@ -99,11 +99,10 @@ export const deleteHandler = async (id) => {
   const milestoneRef = firebase.database().ref("milestone").child(id);
   await milestoneRef.remove();
   successToastify("Deleted successfully");
-}
-
+};
 
 export const editHandler = async (info) => {
   const milestoneRef = firebase.database().ref("milestone").child(info.id);
-  await milestoneRef.update(info)
-  successToastify("Updated Successfully")
-}
+  await milestoneRef.update(info);
+  successToastify("Updated Successfully");
+};
