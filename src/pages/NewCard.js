@@ -17,6 +17,7 @@ const NewCard = () => {
   const { currentUser } = useContext(AuthContext);
 
   const handleaddInfoSubmit = (e) => {
+    console.log(e.target.value)
     e.preventDefault();
 
     const { title, url, content } = e.target;

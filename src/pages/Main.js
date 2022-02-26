@@ -23,6 +23,7 @@ const Main = () => {
       history.push("/detailscard");
     } else {
       alert("Please log in first to dive the deepness of my blogpage😁");
+      history.push("/login")
     }
   };
   return (

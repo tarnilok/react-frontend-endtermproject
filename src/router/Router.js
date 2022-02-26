@@ -15,9 +15,8 @@ const RouterApp = () => {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/login" component={Login} />
         <Route exact path="/" component={Main} />
-        <Route path="/react-frontend-milestoneproject" component={Main} />
+        <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
 
         <PrivateRouter path="/profile" component={Profile} />
